@@ -1,0 +1,45 @@
+.login-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+    background-color: #edf5f5;
+    .userImage{
+        img{
+            width: 7rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .inputs{
+        margin: 1rem 0rem;
+        input{
+            text-align: center;
+            outline: none;
+            border: none;
+            background:none;
+            border-radius: 5rem;
+        }
+        
+    }
+   > form{
+        width: 20rem;
+        padding: 2rem;
+        background-color: #fffcf9;
+        border-radius: 2rem;
+        button{
+            border: none;
+            border-radius: 0.5rem;
+            width: 6rem;
+            transition: all 0.5s;
+            > a{
+                text-decoration: none;
+                color: black;
+            }
+
+        }
+        button:hover{
+            background-color: aqua;
+        }
+    }
+}

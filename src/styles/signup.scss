@@ -1,0 +1,94 @@
+.signup-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+    background-color: #edf5f5;
+    >.signup-container{
+        background-color: #fffcf9;
+        width: 25rem;
+        height: 30rem;
+        > h1{
+            text-align: left;
+            margin: 0.5rem 0rem 1.5rem 1.5rem;
+
+        }
+        .btn {
+            margin: 0.5rem 0rem;
+            width: 90%;
+            height: 3rem;
+            border: none;
+            border-radius: 1rem;
+            background-color: #00ff78a1;
+            transition: all 0.7s;
+        }
+        .btn:hover{
+            background-color: rgb(214, 81, 81);
+        }
+        
+        >form .signup-data{
+            width: 100%;
+            margin: 0.5rem 0rem;
+            
+        }
+        .name input{
+            height: 3rem;
+            width: 43%;
+            margin: 0rem 0.5rem;
+            padding: 0.2rem 1rem;
+            border: none;
+            outline: none;
+            background-color:#edf5f5 ;
+            border-radius: 0.3rem;
+        }
+        .userdata input{
+            width: 90%;
+            height: 3rem;
+            padding: 0.2rem 1rem;
+            border: none;
+            outline: none;
+            background-color: #edf5f5;
+            border-radius: 0.3rem;
+        }
+
+        .gender{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            height: 3rem;
+            margin: auto;
+            padding: 0.2rem 0.5rem;
+            background-color: #edf5f5;
+            border-radius: 0.3rem;
+            
+            .gender-span{
+                height: 2rem;
+                width: 6.2rem;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                >label{
+                    font-style: italic;
+                }
+                    
+            }
+            .gender-span [type='radio']{
+                width: auto;
+                height: auto;
+                outline: none;
+                background-color: #edf5f5;
+                border-radius: 0.3rem;
+            }
+        }
+    }
+    .showDataStyle{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+
+    }
+}

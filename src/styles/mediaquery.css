@@ -1,0 +1,107 @@
+@media screen and (max-width: 1160px) {
+
+}
+@media screen and (max-width: 1160px) {
+  .home {
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .page-header {
+    height: 7rem;
+  }
+  .logo-container {
+    align-self: flex-start;
+  }
+  .navbar-container {
+    flex-direction: column;
+    height: 7rem;
+  }
+  .navigation-menu-container {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    order: 2;
+  }
+  .searchbar-conteiner,
+  .searchbar-conteiner form {
+    width: 100%;
+  }
+  .searchbar-conteiner input[type="text"] {
+    width: 100%;
+    border-radius: 3px;
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .header {
+    height: 12.6rem;
+  }
+  .navbar-container {
+    flex-direction: column;
+  }
+  .nav2-container {
+    overflow-x: scroll;
+    justify-content: start;
+    scrollbar-darkshadow-color: blue;
+  }
+  .logo-container {
+    height: auto;
+  }
+  .logo-container img {
+    width: 7rem;
+  }
+  .product-page {
+    .toggle-media{
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      display: block;
+      height: 2rem;
+      width: 8rem;
+      z-index: 10;
+    }
+    .filter{
+      display: flex;
+      flex-direction: row;
+      position: fixed;
+      bottom: 3rem;
+      background-color: antiquewhite;
+      padding-left: 2rem;
+      min-height: 20vh;
+      min-width: 100vw;
+      z-index: 12;
+      
+
+      .position{
+        position: static;
+      }
+
+    }
+
+    .shirts {
+      width: 100vw;
+      .cards{
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 585px) {
+  .searchbar-conteiner input[type="text"] {
+    height: 2rem;
+  }
+  .search-button {
+    height: 2rem;
+  }
+
+  .navigation-menu-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .login-page {
+    height: 80vh;
+  }
+}

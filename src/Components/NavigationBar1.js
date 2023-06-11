@@ -21,7 +21,7 @@ function NavigationBar1() {
           <Link to='login' className="menu-content">Login</Link>
 
           <Link to='cart' className="cart-container">
-            <img src={cartlogo} />
+            <img src={cartlogo} alt='Cart'/>
             <span>Cart</span>
           </Link>
         </ul>

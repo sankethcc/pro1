@@ -11,7 +11,6 @@ import camera from '../assets/camera.png'
 
 
 import Icon from './Icon'
-import { useState } from 'react'
 export default function NavigationBar2(){
 
     return(

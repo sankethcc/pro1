@@ -11,7 +11,7 @@ const Login = () => {
       <div className="login-page">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="userImage">
-            <img src={userlogo} />
+            <img src={userlogo} alt="User" />
           </div>
           <div className="inputs">
             <input type="text" name="email" id="email" placeholder="UserName/email" autoComplete="off"

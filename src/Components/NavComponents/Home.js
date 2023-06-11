@@ -14,13 +14,13 @@ export default function Home() {
          showStatus={false} autoPlay={true} infiniteLoop={true}  interval={2000} showThumbs={false}
       >
         <div >
-        <img src={slide1}></img>
+        <img src={slide1} alt="Bluetooth Speaker"></img>
         <p>
             Bluetooth Speaker
         </p>
       </div>
       <div >
-        <img src={slide2}></img>
+        <img src={slide2} alt="Mobile Phones"></img>
         <p>
             Mobile Phones
         </p>

@@ -61,7 +61,7 @@ export default function Products() {
                 <div className="cards" key={id}>
                   <div className="card-container">
                     <div className="image-container">
-                      <img src={image} alt="Image"></img>
+                      <img src={image} alt="product"></img>
                       <p>{title.slice(0, 15)}</p>
                       <p>${price}</p>
                     </div>

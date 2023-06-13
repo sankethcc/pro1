@@ -8,6 +8,7 @@ import Cart from './Components/NavComponents/Cart'
 import Home from './Components/NavComponents/Home'
 import Footer from "./Components/Footer";
 import Signup from "./Components/Signup";
+import ProductDisplay from "./Components/ProductDisplay";
 
 
 import './styles/footer.css'
@@ -18,7 +19,8 @@ import './styles/icon.css'
 import './styles/products.scss'
 import './styles/login.scss'
 import './styles/signup.scss'
-import './styles/mediaquery.css'
+import './styles/productdisplay.scss'
+import './styles/mediaquery.scss'
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<Products />}/>
+          <Route path="/products/:productId/:title" element={<ProductDisplay />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<Home />} />

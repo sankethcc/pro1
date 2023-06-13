@@ -8,40 +8,49 @@
         display: none;
     }
     .filter{
-
+        transform: translate3d();
         position: sticky;
         min-height: 80vh;
         width: 11rem;
         display: flex;
         flex-direction: column;
         margin-left: 1rem;
-        .position{
-            position: fixed;
-        }
+    }
+    .position{
+        position: fixed!important;
+    }
 
-        .filter-buttons{
-            justify-content: space-evenly;
-            display: flex;
-            flex-direction: column;
-            height: 12rem;
-                margin-left: 0.5rem;
-            >.category-button{
-                width: 9rem;
-                text-transform: capitalize;
-                font-size: 1rem;
-                font-style: italic;
-                border: none;
-                text-align: left;
-                background: none;
-                transition: all ease-in 350ms inherit;
-                border-radius: 3px;
-            }
-            .category-button:hover{
-                color: rgb(51, 2, 2);
-                background-color: rgb(180, 180, 189);
-            }
-        }
-
+    .filter-buttons{
+        justify-content: space-evenly;
+        display: flex;
+        flex-direction: column;
+        height: 12rem;
+        margin-left: 0.5rem;
+    }
+    .category-button{
+        width: 9rem;
+        text-transform: capitalize;
+        font-size: 1rem;
+        font-style: italic;
+        border: none;
+        text-align: left;
+        background: none;
+        transition: all ease-in 350ms inherit;
+        border-radius: 3px;
+    }
+    .category-button:hover{
+        color: rgb(51, 2, 2);
+        background-color: rgb(180, 180, 189);
+    }
+    .filter-media{
+        display: none;
+    }
+    .close-btn{
+        position: absolute;
+        font-size: 1.5rem;
+        top: 1rem;
+        right: 3rem;
+        border: none;
     }
     .shirts{
         width: 85vw;
@@ -66,11 +75,26 @@
             > .image-container{
                 height:200px;
                 width: auto;
+                text-decoration: none;
+                color: black;
                 > img{
+                    position: relative;
                     height: 8rem;
                     width: 6rem;
                     object-fit: contain;
+                    
+                    
                 }
+                .for-hover{
+                    transition-property: all;
+                    transition-duration: 100ms;
+                    cursor: pointer;
+                }
+                .for-hover:hover{
+                    scale: 106%;
+                }
+                
+                
             }
             > .card-button{
                 display: flex;
@@ -97,4 +121,5 @@
         }
     }
 }
+
 

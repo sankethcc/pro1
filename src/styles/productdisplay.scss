@@ -1,0 +1,98 @@
+.p-page-btn {
+  height: 3rem;
+  width: 10rem;
+  text-align: center;
+  vertical-align: auto;
+  border: none;
+  border-radius: 1rem;
+  background-color: #eb4545;
+  transition: all 0.7s;
+  > a {
+    text-decoration: none;
+    color: black;
+  }
+}
+.p-page-btn:hover {
+  background-color: rgb(206, 141, 141);
+  > a:hover {
+    color: black;
+  }
+}
+.product-display {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  .pro-img-sec {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 35vw;
+    > img {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      height: 25rem;
+      width: 25rem;
+      object-fit: contain;
+    }
+    > .pro-img-btn {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  .product-description {
+    margin-left: 2rem;
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .navigation-to-back {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+      > button {
+        height: 2rem;
+        width: 5rem;
+        border: none;
+        border-radius: 0.5rem;
+        transition: all 350ms;
+        background-color: #eb4545;
+      }
+      >button:hover{
+        background-color: rgb(206, 141, 141);
+      }
+    }
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .price {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .description {
+        line-height: 2rem;
+        font-size: 1.5rem;
+      }
+      .rating-review {
+        display: flex;
+        align-items: center;
+        .rating-logo {
+          background-color: red;
+          border-radius: 1rem;
+          font-size: 1.2rem;
+          color: white;
+          text-align: center;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          width: 3rem;
+          margin-right: 1.5rem;
+        }
+      }
+    }
+  }
+}

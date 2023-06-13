@@ -32,7 +32,7 @@ function App() {
           <Route path="/products/:productId/:title" element={<ProductDisplay />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/sankethcc/react-app" element={<Home />} />
           <Route path='/signup' element={<Signup />} />
         </Routes>
       </BrowserRouter>

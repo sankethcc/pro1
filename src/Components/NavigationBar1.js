@@ -7,7 +7,7 @@ function NavigationBar1() {
   return (
     <>
       <div className='navbar-container'>
-        <Link to='/' className="logo-container">
+        <Link to='/sankethcc/react-app' className="logo-container">
           <img src={logo} alt='Logo'></img>
         </Link >
         <div className="searchbar-conteiner" >

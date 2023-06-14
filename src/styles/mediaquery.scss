@@ -6,31 +6,42 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .page-header {
-    height: 7rem;
+  .navbar-container{
+    justify-content: space-between;
   }
-  .logo-container {
-    align-self: flex-start;
-  }
-  .navbar-container {
-    flex-direction: column;
-    height: 7rem;
-  }
-  .navigation-menu-container {
+  .searchbar-conteiner{
+    display: none;
     position: absolute;
-    top: 1rem;
-    right: 2rem;
-    order: 2;
-  }
-  .searchbar-conteiner,
-  .searchbar-conteiner form {
+    z-index: 10;
+    height: 100%;
     width: 100%;
+  }
+  .media{
+    display: flex;
+    width: 10rem;
+    justify-content: space-around;
   }
   .searchbar-conteiner input[type="text"] {
+    height: 100%;
     width: 100%;
-    border-radius: 3px;
-    margin-left: 1rem;
+    border-radius: 0.2rem;
   }
+  .search-button {
+    height: 100%;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+  }
+  .navigation-menu-container{
+    display: none;
+  }
+  .hamburger-menu{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    left: 0px;
+    }
+  
   .product-display{
     display: flex;
     flex-direction: column;
@@ -53,29 +64,32 @@
   .header {
     height: 12.6rem;
   }
-  .navbar-container {
-    flex-direction: column;
-  }
+
   .nav2-container {
     overflow-x: scroll;
     justify-content: start;
     scrollbar-darkshadow-color: blue;
   }
-  .logo-container {
-    height: auto;
-  }
+
   .logo-container img {
     width: 7rem;
   }
   .product-page {
     .toggle-media {
+      width: 100%;
       position: fixed;
-      bottom: 1rem;
-      left: 1rem;
-      display: block;
-      height: 2rem;
-      width: 8rem;
+      height: 3rem;
+      bottom: 0rem;
+      left: 0rem;
+      display: flex;
       z-index: 10;
+
+      >button{
+        width: 100%;
+        border: none;
+      }
+
+     
     }
     .filter {
       display: none;
@@ -114,12 +128,7 @@
 }
 }
 @media screen and (max-width: 585px) {
-  .searchbar-conteiner input[type="text"] {
-    height: 2rem;
-  }
-  .search-button {
-    height: 2rem;
-  }
+ 
 
   .navigation-menu-container {
     flex-wrap: wrap;

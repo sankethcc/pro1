@@ -22,7 +22,7 @@ function NavigationBar1() {
   return (
     <>
       <div className='navbar-container'>
-        <Link to='/sankethcc/pro1' className="logo-container">
+        <Link to='/' className="logo-container">
           <img src={logo} alt='Logo'></img>
         </Link >
         <div className='media'>
@@ -44,7 +44,7 @@ function NavigationBar1() {
           </div>
         </div>
         <ul className="navigation-menu-container">
-          <Link onClick={toggleInput} to='/sankethcc/pro1' className="menu-content">Home</Link>
+          <Link onClick={toggleInput} to='/' className="menu-content">Home</Link>
           <Link onClick={toggleInput} to='about' className="menu-content">About</Link>
           <Link to='products' className="menu-content">Products</Link>
           <Link to='login' className="menu-content">Login</Link>
@@ -60,7 +60,7 @@ function NavigationBar1() {
       <ul className="hamburger-menu" style={{ transform: `translate3d(0px,${translate}%,0px)`, transitionDuration: "350ms" }}>
         <button className='menu-btn' onClick={toggleInput}>X</button>
         <div>
-          <Link onClick={toggleInput} to='/sankethcc/pro1' className="menu-content">Home</Link>
+          <Link onClick={toggleInput} to='/' className="menu-content">Home</Link>
           <Link onClick={toggleInput} to='about' className="menu-content">About</Link>
           <Link onClick={toggleInput} to='products' className="menu-content">Products</Link>
           <Link onClick={toggleInput} to='login' className="menu-content">Login</Link>

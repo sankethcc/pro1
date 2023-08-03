@@ -71,18 +71,48 @@
   color: green;
   cursor: pointer;
 }
+.lightbox {
+  position: fixed;
+  background: #000;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 350ms ease-in-out, width 0ms ease-in-out 350ms;
+}
+.lightboxOpen {
+  width: 100%;
+  opacity: 0.8;
+  transition: opacity 350ms ease-in-out, width 0ms ease-in-out;
+}
 
 /* Cart Section-------------------- */
 
 .cart-container {
   color: white;
   cursor: pointer;
+  position: relative;
+  margin-right: 1.5rem;
+}
+.total-items-count{
+  position: absolute;
+  right: 1px;
+  top: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgb(105, 92, 92);
+  color: white;
+  text-align: center;
+  border-radius: 1rem;
 }
 .cart-container img {
   margin-right: 0.5rem;
   width: 2rem;
   cursor: pointer;
 }
+
 
 /* Search-Bar Section ---------------------- */
 
@@ -138,6 +168,9 @@
   > button {
     background: none;
     color: white;
+  }
+  .hamburger-btn{
+    z-index: 14;
   }
 }
 .onclick {

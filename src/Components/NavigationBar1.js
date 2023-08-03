@@ -4,10 +4,15 @@ import cartlogo from '../assets/cart.png'
 import searchlogo from '../assets/search.png'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-function NavigationBar1() {
+import Hamburger from 'hamburger-react';
 
+
+function NavigationBar1(props) {
+  
   const [onClick, setOnClick] = useState("")
   const [toggle, setToggle] = useState(false)
+  const [lightBox, setLightBox] = useState('')
+
   const toggleSearch = () => {
     setToggle(!toggle)
     toggle === false ? setOnClick("onclick") : setOnClick("")
@@ -16,8 +21,14 @@ function NavigationBar1() {
   const [translate, setTranslate] = useState(-100)
   const toggleInput = () => {
     setToggleMenu(!toggleMenu)
-    toggleMenu === true ? setTranslate(0) : setTranslate(-100)
-
+    if(toggleMenu === true){
+      setTranslate(0)
+      setLightBox("lightboxOpen")
+      
+    }else{
+      setTranslate(-100)
+      setLightBox("")
+    }
   }
   return (
     <>
@@ -27,12 +38,16 @@ function NavigationBar1() {
         </Link >
         <div className='media'>
           <button onClick={toggleSearch}>Search</button>
-          <button onClick={toggleInput}>=</button>
+          <button className='hamburger-btn' onClick={toggleInput}>{<Hamburger />}</button>
+          <div onClick={()=>props.toggle()} className="cart-container">
+            <p className='total-items-count'>{props.cartLength}</p>
+            <img src={cartlogo} alt='Cart' />
+          </div>
         </div>
         <div className={`searchbar-conteiner ${onClick} `} >
           <div className='search-close'>
             <form onSubmit={(e) => { e.preventDefault() }}>
-              <input type="text" placeholder='Search Product, Category, Brand' />
+              <input id='search' type="text" placeholder='Search Product, Category, Brand' />
               <button type="submit" className="search-button">
                 <img src={searchlogo} alt="Search" />
               </button>
@@ -44,17 +59,15 @@ function NavigationBar1() {
           </div>
         </div>
         <ul className="navigation-menu-container">
-          <Link onClick={toggleInput} to='/' className="menu-content">Home</Link>
-          <Link onClick={toggleInput} to='about' className="menu-content">About</Link>
+          <Link  to='/' className="menu-content">Home</Link>
+          <Link  to='about' className="menu-content">About</Link>
           <Link to='products' className="menu-content">Products</Link>
           <Link to='login' className="menu-content">Login</Link>
-
-          <Link to='cart' className="cart-container">
+        <div onClick={()=>props.toggle()} className="cart-container">
+            <p className='total-items-count'>{props.cartLength}</p>
             <img src={cartlogo} alt='Cart' />
-            <span>Cart</span>
-          </Link>
+          </div>
         </ul>
-
 
       </div>
       <ul className="hamburger-menu" style={{ transform: `translate3d(0px,${translate}%,0px)`, transitionDuration: "350ms" }}>
@@ -65,13 +78,11 @@ function NavigationBar1() {
           <Link onClick={toggleInput} to='products' className="menu-content">Products</Link>
           <Link onClick={toggleInput} to='login' className="menu-content">Login</Link>
 
-          <Link onClick={toggleInput} to='cart' className="cart-container">
-            <img src={cartlogo} alt='Cart' />
-            <span>Cart</span>
-          </Link>
-
+          
         </div>
+
       </ul>
+        <div onClick={toggleInput} className={`lightbox ${lightBox}`}></div>
 
     </>
   );

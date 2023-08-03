@@ -1,0 +1,32 @@
+.home {
+  min-height: 100vh;
+  background-color: rgb(226 242 255);
+  .sanketkumar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .our-pro-heading {
+      color: darkgrey;
+      background-color: white;
+      border-radius: 2px;
+      width: 90%;
+      padding-left: 2rem;
+      text-align: LEFT;
+      border-left: 1rem solid rgb(82, 79, 79);
+    }
+    .cards-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 80vw;
+      min-height: 100vh;
+    }
+  }
+  .our-products {
+    width: 100%;
+    .product-heading {
+      color: blue;
+    }
+  }
+}

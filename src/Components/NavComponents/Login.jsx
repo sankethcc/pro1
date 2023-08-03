@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <>
       <div className="login-page">
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form id="login-form" onSubmit={(e) => e.preventDefault()}>
           <div className="userImage">
             <img src={userlogo} alt="User" />
           </div>

@@ -19,78 +19,135 @@
   }
 }
 .product-display {
-  height: 100vh;
   display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
-  .pro-img-sec {
+  align-items: center;
+  justify-content: center;
+  min-width: 90vw;
+  min-height: 100vh;
+  margin-bottom: 3rem;
+  .pro-display-cont {
     display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
-    width: 35vw;
-    > img {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      height: 25rem;
-      width: 25rem;
-      object-fit: contain;
-    }
-    > .pro-img-btn {
-      width: 80%;
-      display: flex;
-      justify-content: space-around;
-    }
-  }
-  .product-description {
-    margin-left: 2rem;
-    width: 65vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .navigation-to-back {
-      display: flex;
-      align-items: center;
-      height: 4rem;
-      > button {
-        height: 2rem;
-        width: 5rem;
-        border: none;
-        border-radius: 0.5rem;
-        transition: all 350ms;
-        background-color: #eb4545;
-      }
-      >button:hover{
-        background-color: rgb(206, 141, 141);
-      }
-    }
-    .product-details {
+
+    .product-images {
       display: flex;
       flex-direction: column;
-      width: 80%;
-      .title {
-        font-size: 1.5rem;
-        font-weight: bold;
+      align-items: center;
+      width: 35vw;
+      .product-images-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .thumb-container {
+          display: flex;
+          justify-content: space-between;
+          height: 6rem;
+          width: 100%;
+          .single-img-thumb {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+          }
+          .thumb-images {
+            width: 6rem;
+            object-fit: contain;
+            margin: 0rem 0.5rem;
+            cursor: pointer;
+            overflow: hidden;
+          }
+        }
+        .pro-img-sec {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          > img {
+            margin-bottom: 2rem;
+            height: 25rem;
+            width: 25rem;
+            object-fit: contain;
+          }
+        }
       }
-      .price {
-        font-size: 3rem;
-        font-weight: bold;
-      }
-      .description {
-        line-height: 2rem;
-        font-size: 1.5rem;
-      }
-      .rating-review {
+    }
+
+    .product-description {
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .navigation-to-back {
         display: flex;
         align-items: center;
-        .rating-logo {
-          background-color: red;
-          border-radius: 1rem;
-          font-size: 1.2rem;
-          color: white;
-          text-align: center;
-          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-          width: 3rem;
-          margin-right: 1.5rem;
+        height: 4rem;
+        > button {
+          height: 2rem;
+          width: 5rem;
+          border: none;
+          border-radius: 0.5rem;
+          transition: all 350ms;
+          background-color: #eb4545;
+        }
+        > button:hover {
+          background-color: rgb(206, 141, 141);
+        }
+      }
+      .product-details {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        min-height: 55vh;
+        margin-left: 1rem;
+        .title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .description {
+          line-height: 2rem;
+          font-size: 1.5rem;
+        }
+        .rating-review {
+          display: flex;
+          align-items: center;
+          .rating-logo {
+            background-color: red;
+            border-radius: 1rem;
+            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            width: 4rem;
+            margin-right: 1.5rem;
+          }
+        }
+        .flex {
+          display: flex;
+          .price {
+            font-size: 2rem;
+            text-decoration: line-through;
+          }
+          > span {
+            font-size: 3rem;
+            margin-left: 1rem;
+            font-weight: bold;
+          }
+        }
+      }
+      .pro-img-btn {
+        width: 100%;
+        text-align: center;
+        > button {
+          width: 50%;
+          border-radius: 1px;
         }
       }
     }

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { State } from "../Context/Provider";
 
-export default function Cart(props) {
+export default function Cart() {
+    const {cartProduct, removeFromCart} = State()
     return (
         <div className="cart">
             <h1>Shopping Cart</h1>
@@ -16,9 +18,9 @@ export default function Cart(props) {
                     <p className="product-removal">Remove</p>
                     <p className="product-line-price">Total</p>
                 </div>
-                {props?.cartProduct.map((item) => {
+                {cartProduct.map((item) => {
                     return (
-                        <CartProduct item={item} remove={props.removeFromCart} key={item.id} />
+                        <CartProduct item={item} key={item.id} />
                     )
                 })}
                 <Link to='/login' className="checkout">Checkout</Link>
@@ -29,8 +31,9 @@ export default function Cart(props) {
 }
 
 
-const CartProduct = (props) => {
-    const { id, discount, price, thumbnail, title, description, quantity } = props.item
+const CartProduct = ({item}) => {
+    const {removeFromCart} = State()
+    const { id, discount, price, thumbnail, title, description, quantity } = item
     const discountRate = price - price * (Math.floor(discount) / 100);
     const [qty, setQty] = useState(quantity)
     const handleInput = (e) => {
@@ -59,7 +62,7 @@ const CartProduct = (props) => {
                     <button onClick={() => setQty(qty + 1)}>+</button>
                 </div>
                 <div className="product-removal">
-                    <button className="remove-product" onClick={() => props.remove(id)}>
+                    <button className="remove-product" onClick={() => removeFromCart(id)}>
                         Remove
                     </button>
                 </div>

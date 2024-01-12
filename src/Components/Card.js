@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { State } from "./Context/Provider";
 
 const Card = (props) => {
-  console.log(props)
+  const {cart, toggleCart} = State()
   const values = props.data
   const { id, title, category, price, thumbnail, discountPercentage } = values
   const discountRate = price - price * (Math.floor(discountPercentage) / 100);
@@ -30,8 +31,8 @@ const Card = (props) => {
               <Link to="/login">Buy Now</Link>
             </button>
             <button onClick={() => {
-              props.cart(props.data, 1)
-              props.toggle()
+              cart(props.data, 1)
+              toggleCart()
             }}
             >
               Add Cart

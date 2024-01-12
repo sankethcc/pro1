@@ -3,14 +3,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner";
+import { State } from "../Context/Provider";
 
 export default function Products(props) {
+  const {toggleCart, cart} = State()
   const [products, setProducts] = useState([]);
   const [data, setData] = useState([])
   const [categories, setCategories] = useState([])
   const [isLoading, setIsLoading] = useState(true);
 
-  // select=title,price,stock,thumbnail,description,description,discountPercentage,rating,brand,images,category
   useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get("https://dummyjson.com/products?limit=0&skip=0&select=title,price,thumbnail,category,discountPercentage");
@@ -197,8 +198,8 @@ export default function Products(props) {
                         <Link to="/login">Buy Now</Link>
                       </button>
                       <button onClick={() => {
-                        props.cart(values, 1)
-                        props.toggleCart()
+                        cart(values, 1)
+                        toggleCart()
 
                       }}>
                         <Link to="">Add Cart</Link>

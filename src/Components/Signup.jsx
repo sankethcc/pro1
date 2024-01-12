@@ -1,6 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [userRegistration, setUserRegistration] = useState({
     firstname: "",
     lastname: "",
@@ -15,30 +18,49 @@ const Signup = () => {
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(value)
-
     setUserRegistration({ ...userRegistration, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newRecord = {
-      ...userRegistration,
-      id: new Date().getTime().toString(),
-    };
+    // const newRecord = {
+    //   ...userRegistration,
+    //   id: new Date().getTime().toString(),
+    // };
 
-    setRecords([...records, newRecord]);
-    console.log(records);
+    // setRecords([...records, newRecord]);
+    // console.log(records);
+    axios
+      .post('http://localhost:5000/sign_up', {
+        first_name:userRegistration.firstname,
+        last_name:userRegistration.lastname,
+        email:userRegistration.email,
+        contact:userRegistration.number,
+        password:userRegistration.password,
+        gender:userRegistration.gender,
+        user_id:userRegistration.userid
+      })
+      .then((response)=>{
+        if(response.status==200){
+          console.log(response.data)
+          setUserRegistration({
+            firstname: "",
+            lastname: "",
+            userid: "",
+            email: "",
+            number:"",
+            password: "",
+            gender: ""
+          });
+          navigate('/login')
 
-    setUserRegistration({
-      firstname: "",
-      lastname: "",
-      userid: "",
-      email: "",
-      number:"",
-      password: "",
-      gender: ""
-    });
+        }else{
+          console.log(response)
+        }
+      }).catch((e)=>{
+        console.log(e)
+      })
+    
   };
   return (
     <div className="signup-page">
@@ -47,6 +69,7 @@ const Signup = () => {
         <form id="signup-form" onSubmit={handleSubmit}>
           <div className="signup-data name">
             <input
+              required
               type="text"
               name="firstname"
               id="firstname"
@@ -56,6 +79,7 @@ const Signup = () => {
               onChange={handleInput}
             ></input>
             <input
+              required
               type="text"
               name="lastname"
               id="lastname"
@@ -67,6 +91,7 @@ const Signup = () => {
           </div>
           <div className="signup-data userdata">
             <input
+              required
               type="email"
               name="email"
               id="email"
@@ -78,6 +103,7 @@ const Signup = () => {
           </div>
           <div className="signup-data userdata">
             <input
+              required
               type="number"
               name="number"
               id="number"
@@ -89,6 +115,7 @@ const Signup = () => {
           </div>
           <div className="signup-data userdata">
             <input
+              required
               type="text"
               name="userid"
               id="userid"
@@ -100,6 +127,7 @@ const Signup = () => {
           </div>
           <div className="signup-data userdata">
             <input
+              required
               type="password"
               name="password"
               id="password"

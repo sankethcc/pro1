@@ -18,7 +18,7 @@
     "react-redux": "^8.1.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.11.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "redux": "^4.2.1",
     "sass": "^1.62.1",
@@ -26,12 +26,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node node_modules/react-scripts/scripts/start.js",
+    "build": "node node_modules/react-scripts/scripts/build.js",
+    "test": "node node_modules/react-scripts/scripts/test.js",
+    "eject": "node node_modules/react-scripts/scripts/eject.js"
   },
   "eslintConfig": {
     "extends": [

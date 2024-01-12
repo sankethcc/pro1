@@ -9,6 +9,7 @@ import Cart from './Components/NavComponents/Cart'
 import Signup from "./Components/Signup";
 import ProductDisplay from './Components/ProductDisplay'
 import Home from './Components/NavComponents/Home'
+import Admin from "./Components/AdminPage/Admin";
 
 
 import './styles/footer.css'
@@ -24,68 +25,37 @@ import './styles/productdisplay.scss'
 import './styles/loadingspinner.scss'
 import './styles/card.scss'
 import './styles/cart.scss'
+import './styles/admin.scss'
 import './styles/mediaquery.scss'
+import HeaderAdmin from "./Components/AdminPage/HeaderAdmin";
+import Dashboard from "./Components/AdminPage/Dashboard";
+import ProductsView from "./Components/AdminPage/ProductsView";
+import Orders from "./Components/AdminPage/Orders";
 
 
 
 function App() {
-  const [cartProduct, setCartProduct] = useState([])
-  const [toggleMenu, setToggleMenu] = useState(true)
-  const [translate, setTranslate] = useState(100)
-  const [lightBox, setLightBox] = useState('')
-  let props = {
-    toggleMenu,
-    translate,
-    lightBox,
-    cartProduct,
-
-    toggleCart: () => {
-      setToggleMenu(!toggleMenu)
-      if (toggleMenu) {
-        setTranslate(0)
-        setLightBox("lightboxOpen")
-      } else {
-        setTranslate(100)
-        setLightBox("")
-      }
-    },
-    cart: (data, quantity) => {
-      
-      let temp = {
-        id: data.id,
-        discount:data.discountPercentage,
-        category:data.category,
-        price:data.price,
-        thumbnail:data.thumbnail,
-        title:data.title,
-        quantity:quantity,
-        description:data.description
-      }
-      setCartProduct([...cartProduct, temp])
-    },
-    removeFromCart: (id) => {
-      setCartProduct(cartProduct.filter((product) => {
-        return product.id !== id
-      }))
-    },
-
-  }
-
-  console.log(props)
-
-
+  
   return (
     <div className="App">
       <BrowserRouter>
-        <Header {...props} />
         <Routes>
-          <Route path="/products" element={<Products {...props}/>} />
-          <Route path="/products/:productId/:title" element={<ProductDisplay {...props} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart {...props} />} />
-          <Route path="/" element={<Home {...props} />} />
-          <Route path="/about" element={<About />} />
-          <Route path='/signup' element={<Signup />} />
+          <Route path="/"  element={<Header />}>
+            <Route index element={<Home />} />
+            <Route path="/products" element={<Products/>} />
+            <Route path="/products/:productId/:title" element={<ProductDisplay />} />
+            <Route path="/login" element={ <Login />} />
+            <Route path="/cart" element={<Cart/>} />
+            <Route path="/about" element={<About />} />
+            <Route path='/signup' element={<Signup />} />
+          </Route>
+          <Route path='/admin' element={<HeaderAdmin />}>
+            <Route index element={<Dashboard />} />
+            <Route path="add-product" element={<Admin />} />
+            <Route path="product" element={<ProductsView />} />
+            <Route path="orders" element={<Orders />} />
+
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

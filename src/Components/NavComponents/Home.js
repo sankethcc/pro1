@@ -9,9 +9,11 @@ import Footer from "../Footer";
 import Card from '../Card'
 
 import LoadingSpinner from '../LoadingSpinner'
+import { State } from "../Context/Provider";
 
 
 export default function Home(props) {
+  const {cart, toggleCart} = State()
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
 
@@ -59,7 +61,7 @@ export default function Home(props) {
                   const data = values;
                   return (
                     <div key={i}>
-                      <Card data={data} cart={props.cart} toggle = {props.toggleCart} />
+                      <Card data={data} cart={cart} toggle = {toggleCart} />
 
                     </div>
                   )

@@ -7,8 +7,9 @@
   position: fixed;
   top: 0px;
   z-index: 10;
+  background-color: rgba(27, 27, 41, 0.9);
 }
-.navbar-container::before {
+/* .navbar-container::after {
   content: "";
   position: absolute;
   top: 0px;
@@ -18,7 +19,7 @@
   background-color: rgba(27, 27, 41, 0.9);
   z-index: -1;
   opacity: 1;
-}
+} */
 
 /* Logo section ------------------- */
 
@@ -94,12 +95,14 @@
   color: white;
   cursor: pointer;
   position: relative;
-  margin-right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .total-items-count{
   position: absolute;
   right: 1px;
-  top: -0.5rem;
+  top: -5px;
   width: 1.5rem;
   height: 1.5rem;
   background-color: rgb(105, 92, 92);
@@ -168,9 +171,10 @@
   > button {
     background: none;
     color: white;
+    border: none;
   }
   .hamburger-btn{
-    z-index: 14;
+    /* z-index: 14; */
   }
 }
 .onclick {

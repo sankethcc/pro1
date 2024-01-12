@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { State } from "./Context/Provider";
 
-const ProductDisplay = (props) => {
-  console.log(props.cart)
+const ProductDisplay = () => {
+  const {cart, toggleCart} = State()
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const { productId } = useParams();
@@ -17,7 +18,7 @@ const ProductDisplay = (props) => {
 
     fetchProduct();
   }, [productId]);
-  console.log(products)
+  
   const {
     title,
     price,
@@ -111,8 +112,8 @@ const ProductDisplay = (props) => {
               </button>
               <button className="p-page-btn">
                 <Link onClick={()=>{
-                  props.cart(products,1)
-                  props.toggleCart()
+                  cart(products,1)
+                  toggleCart()
                   }} >Add Cart</Link>
               </button>
             </div>

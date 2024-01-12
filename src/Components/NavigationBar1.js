@@ -2,17 +2,23 @@
 import logo from '../assets/logo.png'
 import cartlogo from '../assets/cart.png'
 import searchlogo from '../assets/search.png'
+import searchIcon from '../assets/search-icon.png'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Hamburger from 'hamburger-react';
+import { State } from './Context/Provider';
 
 
 function NavigationBar1(props) {
-  
+  const {isLoggedIn, setIsLoggedIn, cartProduct,toggleCart} = State()
   const [onClick, setOnClick] = useState("")
   const [toggle, setToggle] = useState(false)
   const [lightBox, setLightBox] = useState('')
 
+  const logout = ()=>{
+    localStorage.removeItem("user")
+    setIsLoggedIn(false)
+  }
   const toggleSearch = () => {
     setToggle(!toggle)
     toggle === false ? setOnClick("onclick") : setOnClick("")
@@ -37,12 +43,12 @@ function NavigationBar1(props) {
           <img src={logo} alt='Logo'></img>
         </Link >
         <div className='media'>
-          <button onClick={toggleSearch}>Search</button>
-          <button className='hamburger-btn' onClick={toggleInput}>{<Hamburger />}</button>
-          <div onClick={()=>props.toggle()} className="cart-container">
-            <p className='total-items-count'>{props.cartLength}</p>
+          <button onClick={toggleSearch}><img style={{height:'2rem'}} src={searchIcon} /></button>
+          <div onClick={()=>toggleCart()} className="cart-container">
+            <p className='total-items-count'>{cartProduct.length}</p>
             <img src={cartlogo} alt='Cart' />
           </div>
+          <button className='hamburger-btn' onClick={toggleInput}>{<Hamburger toggled={!toggleMenu} />}</button>
         </div>
         <div className={`searchbar-conteiner ${onClick} `} >
           <div className='search-close'>
@@ -62,18 +68,20 @@ function NavigationBar1(props) {
           <Link  to='/' className="menu-content">Home</Link>
           <Link  to='about' className="menu-content">About</Link>
           <Link to='products' className="menu-content">Products</Link>
+          {!isLoggedIn?
           <Link to='login' className="menu-content">Login</Link>
-        <div onClick={()=>props.toggle()} className="cart-container">
-            <p className='total-items-count'>{props.cartLength}</p>
+          :<Link onClick={logout} className='menu-content'>Logout</Link>}
+        <div onClick={()=>toggleCart()} className="cart-container">
+            <p className='total-items-count'>{cartProduct.length}</p>
             <img src={cartlogo} alt='Cart' />
           </div>
         </ul>
 
       </div>
       <ul className="hamburger-menu" style={{ transform: `translate3d(0px,${translate}%,0px)`, transitionDuration: "350ms" }}>
-        <button className='menu-btn' onClick={toggleInput}>X</button>
+        <button className='menu-btn' onClick={toggleInput}><Hamburger toggled={!toggleMenu} /></button>
         <div>
-          <Link onClick={toggleInput} to='/' className="menu-content">Home</Link>
+          <Link onClick={toggleInput} to='' className="menu-content">Home</Link>
           <Link onClick={toggleInput} to='about' className="menu-content">About</Link>
           <Link onClick={toggleInput} to='products' className="menu-content">Products</Link>
           <Link onClick={toggleInput} to='login' className="menu-content">Login</Link>

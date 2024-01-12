@@ -1,15 +1,43 @@
 import React, { useState } from "react";
 
 import userlogo from "../../assets/userlogo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { State } from "../Context/Provider";
 const Login = () => {
+  const {isLoggedIn, setIsLoggedIn} = State()
+  const navigate = useNavigate()
     const [user,setUser] = useState("")
     const [password,setPassword] = useState("")
+  const login = (e)=>{
+    e.preventDefault()
+      axios.post("http://localhost:5000/login",{
+        user_id:user,
+        password:password
+      }).then((response)=>{
+        if(response.status===200){
+          console.log(response.data.message)
+          localStorage.setItem("user", JSON.stringify(response.data.data))
+          setIsLoggedIn(true)
+          if(response.data.data.admin){
+            navigate('/admin')
+          }else{
+            navigate('/')
 
+          }
+          
+          
+        }else{
+          alert(response.data.message)
+        }
+      }).catch((error)=>{
+        alert(error.response.data)
+      })
+  }
   return (
     <>
       <div className="login-page">
-        <form id="login-form" onSubmit={(e) => e.preventDefault()}>
+        <form id="login-form" onSubmit={login}>
           <div className="userImage">
             <img src={userlogo} alt="User" />
           </div>
